@@ -1,4 +1,4 @@
-@extends('dashboard.auth.layout')
+@extends('auth.layout')
 @section('content')
 <div class="relative mx-auto z-0 flex max-w-sm flex-col min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border mt-10" >
     <div class="p-6 mb-0 text-center w-1/2 bg-white border-b-0 rounded-t-2xl">
