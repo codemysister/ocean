@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\General\ProgramController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/program', ProgramController::class);
 
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::middleware('auth')->group(function(){
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
     });
 });
-
