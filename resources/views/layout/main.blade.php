@@ -37,8 +37,9 @@
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 
     <style>
-        ul { list-style-type: disc !important; }
-        ol { list-style-type: decimal !important; }
+        #trix ul { list-style-type: disc !important; padding-left: 1rem !important}
+        #trix ol { list-style-type: decimal !important; padding-left: 1rem !important}
+
     </style>
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 
@@ -53,6 +54,8 @@
         @include('layout.navbar')
         @yield('content')
     </main>
+
+    @include('sweetalert::alert')
     {{-- <div fixed-plugin>
         <a fixed-plugin-button class="bottom-7.5 right-7.5 text-xl z-990 shadow-soft-lg rounded-circle fixed cursor-pointer bg-white px-4 py-2 text-slate-700">
             <i class="py-2 pointer-events-none fa fa-cog"> </i>
