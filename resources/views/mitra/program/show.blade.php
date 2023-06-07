@@ -23,6 +23,7 @@
                             <p class="text-xs text-white"><b>Skema : </b>{{$program->work_mode}}</p>
                             <p class="text-xs text-white"><b>Durasi : </b>{{$program->duration}} bulan</p>
                             <p class="text-xs text-white"><b>Periode : </b>{{Carbon\Carbon::parse($program->start)->locale('id')->isoFormat('D MMMM YYYY')}} - {{Carbon\Carbon::parse($program->end)->locale('id')->isoFormat('D MMMM YYYY')}}</p>
+                            <p class="text-xs text-white"><b>Domisili : </b>{{Auth::user()->profileMitra->address}}</p>
                         </div>
 
 
