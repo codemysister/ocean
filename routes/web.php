@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\General\ProgramController;
+use App\Http\Controllers\Mitra\MitraProfileController;
 use App\Http\Controllers\Mitra\MitraProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/program', ProgramController::class);
+Route::get('/program', [ProgramController::class, 'index']);
+Route::get('/btnProfile', [ProgramController::class, 'btnInfoProfile'])->name('btn.profile');
 
 Route::prefix('mitra')->name('mitra.')->group(function(){
+
+    // Profile
+    Route::get('/profile/{uuid}/edit', [MitraProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/{uuid}/update', [MitraProfileController::class, 'update'])->name('profile.update');
     Route::resource('program', MitraProgramController::class);
 });
 

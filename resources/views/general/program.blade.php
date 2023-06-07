@@ -1,6 +1,7 @@
 @extends('layout.main')
 @section('content')
 
+{{-- @dd(Auth::user()->profile->profileLengkap()) --}}
 <div class="w-full px-6 mx-auto">
     <div class="relative flex items-center p-0 mt-6 overflow-hidden bg-center bg-cover min-h-75 rounded-2xl" style="background-image: url('../assets/img/curved-images/curved0.jpg'); background-position-y: 50%">
         <span class="absolute inset-y-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-purple-700 to-pink-500 opacity-60"></span>
@@ -95,9 +96,19 @@
                         <p class="leading-normal text-sm">Architects design houses</p>
                     </div>
 
+                    @if (Auth::user()->hasRole('mitra') && Auth::user()->profileMitra->profileLengkap())
+
                     <div class="p-4 mt-1">
-                        <button data-modal-target="modal-tambah-program" data-modal-toggle="modal-tambah-program" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs bg-150 active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 border-fuchsia-500 text-fuchsia-500 hover:opacity-75">Buat Program</button>
+                        <a href="{{route('mitra.program.create')}}" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs bg-150 active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 border-fuchsia-500 text-fuchsia-500 hover:opacity-75">Buat Program</a>
                     </div>
+
+                    @else
+
+                    <div class="p-4 mt-1">
+                        <a href="{{route('btn.profile')}}" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs bg-150 active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 border-fuchsia-500 text-fuchsia-500 hover:opacity-75">Buat Program</a>
+                    </div>
+
+                    @endif
 
 
                 </div>

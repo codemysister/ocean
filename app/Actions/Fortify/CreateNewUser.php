@@ -3,9 +3,11 @@
 namespace App\Actions\Fortify;
 
 use App\Models\Mitra;
+use App\Models\MitraProfile;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -39,6 +41,11 @@ class CreateNewUser implements CreatesNewUsers
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
+            ]);
+
+            MitraProfile::create([
+                'user_id' => $mitra->id,
+                'uuid' => Str::uuid()
             ]);
 
             return $mitra->assignRole('Mitra');

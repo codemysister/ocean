@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\MitraProfile;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
@@ -24,18 +26,24 @@ class UserSeeder extends Seeder
         ]);
         $user->assignRole($roleUser);
 
-        $user = \App\Models\User::create([
+        $admin = \App\Models\User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin123')
         ]);
-        $user->assignRole($roleAdmin);
+        $admin->assignRole($roleAdmin);
 
-        $user = \App\Models\User::create([
+        $mitra = \App\Models\User::create([
             'name' => 'Mitra',
             'email' => 'mitra@gmail.com',
             'password' => bcrypt('mitra123')
         ]);
-        $user->assignRole($roleMitra);
+        $mitra->assignRole($roleMitra);
+
+        MitraProfile::create([
+            'user_id' => $mitra->id,
+            'logo' => 'logo/logo_default.png',
+            'uuid' => Str::uuid()
+        ]);
     }
 }
