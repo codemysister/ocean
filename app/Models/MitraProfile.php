@@ -31,4 +31,9 @@ class MitraProfile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function programs()
+    {
+        return $this->hasMany(Program::class);
+    }
 }

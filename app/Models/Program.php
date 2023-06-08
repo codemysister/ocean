@@ -15,4 +15,9 @@ class Program extends Model
     {
         return 'slug';
     }
+
+    public function mitra()
+    {
+        return $this->belongsTo(MitraProfile::class);
+    }
 }

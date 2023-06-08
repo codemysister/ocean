@@ -3,6 +3,7 @@
 namespace App\Services\Mitra;
 
 use App\Models\Program;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -12,6 +13,7 @@ class ProgramService {
         $data = $request->validated();
         $data['guidebook'] = $request->guidebook->store('guidebook', 'public');
         $data['slug'] = Str::slug($request->title) . '-' . Str::random(6);
+        $data['mitra_profiles_id'] = Auth::user()->profileMitra->id;
         Program::create($data);
         return true;
 

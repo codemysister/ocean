@@ -23,11 +23,10 @@
                         @foreach ($programs as $program)
                         <div class="w-full max-w-full  p-3 mb-6 md:w-6/12 md:flex-none xl:mb-0 xl:w-3/12">
                             <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border">
-                                <div class="relative">
-                                    <a class="block shadow-xl rounded-2xl">
-                                        <img src="{{asset('storage/'.Auth::user()->profileMitra->logo)}}" alt="img-blur-shadow" class="max-w-full shadow-soft-2xl rounded-2xl" />
-                                    </a>
+                                <div class="relative h-[200px] w-full max-h-[200px] shadow-xl rounded-2xl">
+                                    <img src="{{asset('storage/'.Auth::user()->profileMitra->logo)}}" alt="img-blur-shadow" class="max-w-full shadow-soft-2xl w-full h-full rounded-2xl" />
                                 </div>
+
                                 <div class="flex-auto px-1 pt-6">
                                     <p class="relative z-10 mb-2 leading-normal text-transparent bg-gradient-to-tl from-gray-900 to-slate-800 text-sm bg-clip-text">{{$program->intern_type}}</p>
                                     <a href="javascript:;">

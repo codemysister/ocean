@@ -17,6 +17,7 @@ class ProgramSeeder extends Seeder
     {
         Program::create([
             'category_id' => 1,
+            'mitra_profiles_id' => 1,
             'title' => 'Fullstack Developer Intern',
             'slug' => Str::slug('Fullstack Developer Intern') . '-' . Str::random(6),
             'work_mode' => 'Work From Home (WFH)',
@@ -30,6 +31,7 @@ class ProgramSeeder extends Seeder
 
         Program::create([
             'category_id' => 1,
+            'mitra_profiles_id' => 1,
             'title' => 'Backend Developer Intern',
             'slug' => Str::slug('Backend Developer Intern') . '-' . Str::random(6),
             'work_mode' => 'Work From Office (WFO)',
@@ -43,6 +45,7 @@ class ProgramSeeder extends Seeder
 
         Program::create([
             'category_id' => 1,
+            'mitra_profiles_id' => 1,
             'title' => 'Frontend Developer Intern',
             'slug' => Str::slug('Frontend Developer Intern') . '-' . Str::random(6),
             'work_mode' => 'Work From Home (WFH)',
@@ -56,6 +59,7 @@ class ProgramSeeder extends Seeder
 
         Program::create([
             'category_id' => 2,
+            'mitra_profiles_id' => 1,
             'title' => 'Marketing Intern',
             'slug' => Str::slug('Marketing Intern') . '-' . Str::random(6),
             'work_mode' => 'Work From Home (WFH)',

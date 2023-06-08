@@ -27,8 +27,8 @@ Route::get('/btnProfile', [ProgramController::class, 'btnInfoProfile'])->name('b
 Route::prefix('mitra')->name('mitra.')->group(function(){
 
     // Profile
-    Route::get('/profile/{uuid}/edit', [MitraProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile/{uuid}/update', [MitraProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/{profile}/edit', [MitraProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/{profile}/update', [MitraProfileController::class, 'update'])->name('profile.update');
     Route::resource('program', MitraProgramController::class);
 });
 

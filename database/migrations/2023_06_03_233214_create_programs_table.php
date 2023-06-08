@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained();
+            $table->foreignId('mitra_profiles_id')->constrained('mitra_profiles')->onDelete('cascade');
             $table->string('title');
             $table->string('slug');
             $table->string('work_mode');

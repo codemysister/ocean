@@ -7,6 +7,7 @@ use App\Http\Requests\Mitra\ProgramRequest;
 use App\Models\Category;
 use App\Models\Program;
 use App\Services\Mitra\ProgramService;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class MitraProgramController extends Controller
@@ -16,7 +17,7 @@ class MitraProgramController extends Controller
      */
     public function index()
     {
-        $programs = Program::all();
+        $programs = Program::with('mitra')->where('mitra_profiles_id', Auth::user()->profileMitra->id)->get();
         return view('mitra.program.index', compact('programs'));
     }
 
