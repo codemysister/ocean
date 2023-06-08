@@ -42,7 +42,6 @@ class UserSeeder extends Seeder
 
         MitraProfile::create([
             'user_id' => $mitra->id,
-            'logo' => 'logo/logo_default.png',
             'uuid' => Str::uuid()
         ]);
     }

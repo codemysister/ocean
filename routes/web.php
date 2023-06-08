@@ -17,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', function(){
+    return view('general.landing');
+});
 
-Route::get('/program', [ProgramController::class, 'index']);
+Route::get('/program', [ProgramController::class, 'index'])->name('program');
 Route::get('/btnProfile', [ProgramController::class, 'btnInfoProfile'])->name('btn.profile');
 
 Route::prefix('mitra')->name('mitra.')->group(function(){
