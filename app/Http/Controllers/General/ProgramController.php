@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
+use App\Models\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,13 @@ class ProgramController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
-        return view('general.program', compact('user'));
+        $programs = Program::with('mitra')->get();
+        return view('general.program', compact('user', 'programs'));
+    }
+
+    public function show(Program $program)
+    {
+        return view('general.program_detail', compact('program'));
     }
 
     public function btnInfoProfile()
