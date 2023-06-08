@@ -26,10 +26,9 @@ class FortifyServiceProvider extends ServiceProvider
             {
                 if(Auth::user()->hasRole('admin')){
                     return redirect('/admin/dashboard');
-                }else if(Auth::user()->hasRole('mitra')){
+                }else{
                     return redirect('program/');
                 }
-                return redirect('/');
             }
         });
     }
