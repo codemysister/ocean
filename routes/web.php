@@ -21,10 +21,10 @@ Route::get('/', function(){
     return view('general.landing');
 });
 
-Route::get('/program', [ProgramController::class, 'index'])->name('program');
+Route::get('/program', [ProgramController::class, 'index'])->name('program')->middleware('auth');
 Route::get('/btnProfile', [ProgramController::class, 'btnInfoProfile'])->name('btn.profile');
 
-Route::prefix('mitra')->name('mitra.')->group(function(){
+Route::prefix('mitra')->name('mitra.')->middleware(['role:mitra', 'auth'])->group(function(){
 
     // Profile
     Route::get('/profile/{profile}/edit', [MitraProfileController::class, 'edit'])->name('profile.edit');
@@ -32,10 +32,9 @@ Route::prefix('mitra')->name('mitra.')->group(function(){
     Route::resource('program', MitraProgramController::class);
 });
 
-Route::prefix('admin')->name('admin.')->group(function(){
-    Route::middleware('auth')->group(function(){
+Route::prefix('admin')->name('admin.')->middleware(['role:admin', 'auth'])->group(function(){
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
 
         Route::resource('category', AdminCategoryController::class);
-    });
+
 });
