@@ -32,8 +32,10 @@
                                 <span class="text-sm font-medium text-slate-700 mb-2">Jenis kelamin</span>
                                 <select name="gender" id="gender" class="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow">
                                     <option value="">Pilih jenis kelamin</option>
-                                    <option value="Pria">Pria</option>
-                                    <option value="Wanita">Wanita</option>
+
+                                    <option value="Pria" @selected($profile->gender == "Pria")>Pria</option>
+                                    <option value="Wanita" @selected($profile->gender == "Wanita")>Wanita</option>
+
                                 </select>
                                 @error('gender')
                                 <p class="font-semibold text-xs text-red-700">{{$message}}</p>
