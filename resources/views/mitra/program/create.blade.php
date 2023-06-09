@@ -109,7 +109,7 @@
 
                         <div class="flex gap-4 mb-2">
                             <div class="flex flex-col w-full">
-                                <span class="text-sm font-medium text-slate-700 mb-2">Guidebook (optional)</span>
+                                <span class="text-sm font-medium text-slate-700 mb-2">Guidebook</span>
                                 <input type="file" name="guidebook" class="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow" placeholder="guidebook..." aria-label="guidebook" aria-describedby="guidebook-addon" value="{{old('guidebook')}}" />
                                 @error('guidebook')
                                 <p class="font-semibold text-xs text-red-700">{{$message}}</p>
