@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(MitraProfile::class);
     }
+
+    public function profileUser()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
 }

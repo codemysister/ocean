@@ -18,6 +18,6 @@ class Program extends Model
 
     public function mitra()
     {
-        return $this->belongsTo(MitraProfile::class);
+        return $this->belongsTo(MitraProfile::class, 'mitra_profiles_id', 'id');
     }
 }

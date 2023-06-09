@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\General\ProgramController;
 use App\Http\Controllers\Mitra\MitraProfileController;
 use App\Http\Controllers\Mitra\MitraProgramController;
+use App\Http\Controllers\User\UserProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +22,23 @@ Route::get('/', function(){
     return view('general.landing');
 });
 
-Route::get('/program', [ProgramController::class, 'index'])->name('program')->middleware('auth');
 Route::get('/btnProfile', [ProgramController::class, 'btnInfoProfile'])->name('btn.profile');
+
+Route::middleware('auth')->group(function(){
+    Route::get('/program', [ProgramController::class, 'index'])->name('program');
+    Route::get('/program/{program}', [ProgramController::class, 'show'])->name('program.show');
+});
+
+
+Route::prefix('user')->name('user.')->middleware(['role:user', 'auth'])->group(function(){
+
+    // Profile
+    Route::get('/profile/{profile}/edit', [UserProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/{profile}/update', [UserProfileController::class, 'update'])->name('profile.update');
+
+
+    // Route::resource('program', UserProfileController::class);
+});
 
 Route::prefix('mitra')->name('mitra.')->middleware(['role:mitra', 'auth'])->group(function(){
 

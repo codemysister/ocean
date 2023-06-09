@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\MitraProfile;
+use App\Models\UserProfile;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -25,6 +26,12 @@ class UserSeeder extends Seeder
             'password' => bcrypt('user123')
         ]);
         $user->assignRole($roleUser);
+
+        UserProfile::create([
+            'user_id' => $user->id,
+            'uuid' => Str::uuid(),
+            'profile_image' => 'profile_default.jpg'
+        ]);
 
         $admin = \App\Models\User::create([
             'name' => 'Admin',
