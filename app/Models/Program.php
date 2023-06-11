@@ -20,4 +20,9 @@ class Program extends Model
     {
         return $this->belongsTo(MitraProfile::class, 'mitra_profiles_id', 'id');
     }
+
+    public function applicants()
+    {
+        return $this->hasMany(Applicant::class);
+    }
 }
