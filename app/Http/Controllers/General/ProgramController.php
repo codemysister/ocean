@@ -26,9 +26,15 @@ class ProgramController extends Controller
 
     public function btnInfoProfile()
     {
+        $route = '';
+        if(Auth::user()->hasRole('mitra')){
+            $route = route('mitra.profile.edit',Auth::user()->profileMitra->uuid);
+        }else{
+            $route = route('user.profile.edit',Auth::user()->profileUser->uuid);
+        }
         alert()->html('<p>Profil belum lengkap</p>',"
         Silahkan
-        <a href=".route('mitra.profile.edit',Auth::user()->profileMitra->uuid)."><b><u>lengkapi profil</u></b></a>
+        <a href=".$route."><b><u>lengkapi profil</u></b></a>
          Anda terlebih dahulu
         ",'info')->autoClose(8000);
 

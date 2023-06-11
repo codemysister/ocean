@@ -10,10 +10,32 @@
         <div class="flex flex-wrap -mx-3">
             <div class="flex-none w-auto max-w-full px-3">
                 <div class="text-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
-                    @if (Auth::user()->hasRole('mitra') && Auth::user()->profileMitra->logo != null)
-                    <img src="{{asset('storage/'.$user->profileMitra->logo)}}" alt="profile_image" class="w-full shadow-soft-sm rounded-xl h-14" />
-                    @else
-                    <img src="{{asset('storage/profile_default.jpg')}}" alt="profile_image" class="w-full shadow-soft-sm rounded-xl h-14" />
+                    @if (Auth::user()->hasRole('mitra'))
+
+                        @if (Auth::user()->profileMitra->logo != null)
+
+                        <img src="{{asset('storage/'.$user->profileMitra->logo)}}" alt="profile_image" class="w-full shadow-soft-sm rounded-xl h-14" />
+
+                        @else
+
+                        <img src="{{asset('storage/profile_default.jpg')}}" alt="profile_image" class="w-full shadow-soft-sm rounded-xl h-14" />
+
+                        @endif
+
+                    @endif
+
+                    @if (Auth::user()->hasRole('user'))
+
+                        @if (Auth::user()->profileUser->profile_image != null)
+
+                        <img src="{{asset('storage/'.$user->profileUser->profile_image)}}" alt="profile_image" class="w-full shadow-soft-sm rounded-xl h-14" />
+
+                        @else
+
+                        <img src="{{asset('storage/profile_default.jpg')}}" alt="profile_image" class="w-full shadow-soft-sm rounded-xl h-14" />
+
+                        @endif
+
                     @endif
                 </div>
             </div>
@@ -29,44 +51,44 @@
 
                         @if (Auth::user()->hasRole('mitra'))
 
-                            @if (Auth::user()->profileMitra->profileLengkap())
+                        @if (Auth::user()->profileMitra->profileLengkap())
 
-                            <li class="z-30 flex-auto text-center">
-                                <a href="{{route('mitra.program.index')}}" class="z-30 block font-semibold w-full px-0 py-1 mb-0 transition-all border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700" nav-link active href="javascript:;" role="tab" aria-selected="true">
-                                    <span class="ml-1">Dashboard</span>
-                                </a>
-                            </li>
+                        <li class="z-30 flex-auto text-center">
+                            <a href="{{route('mitra.program.index')}}" class="z-30 block font-semibold w-full px-0 py-1 mb-0 transition-all border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700" nav-link active href="javascript:;" role="tab" aria-selected="true">
+                                <span class="ml-1">Dashboard</span>
+                            </a>
+                        </li>
 
-                            @else
+                        @else
 
-                            <li class="z-30 flex-auto text-center w-full">
-                                <a href="{{route('mitra.profile.edit', Auth::user()->profileMitra->uuid)}}" class="z-30 font-semibold block w-full px-0 py-1 mb-0 transition-all border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700" nav-link active href="javascript:;" role="tab" aria-selected="true">
-                                    <span class="ml-1">Lengkapi Profile</span>
-                                </a>
-                            </li>
-                            @endif
+                        <li class="z-30 flex-auto text-center w-full">
+                            <a href="{{route('mitra.profile.edit', Auth::user()->profileMitra->uuid)}}" class="z-30 font-semibold block w-full px-0 py-1 mb-0 transition-all border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700" nav-link active href="javascript:;" role="tab" aria-selected="true">
+                                <span class="ml-1">Lengkapi Profile</span>
+                            </a>
+                        </li>
+                        @endif
 
                         @endif
 
 
                         @if (Auth::user()->hasRole('user'))
 
-                            @if (Auth::user()->profileUser->profileLengkap())
+                        @if (Auth::user()->profileUser->profileLengkap())
 
-                            <li class="z-30 flex-auto text-center">
-                                <a href="" class="z-30 block font-semibold w-full px-0 py-1 mb-0 transition-all border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700" nav-link active href="javascript:;" role="tab" aria-selected="true">
-                                    <span class="ml-1">Dashboard</span>
-                                </a>
-                            </li>
+                        <li class="z-30 flex-auto text-center">
+                            <a href="" class="z-30 block font-semibold w-full px-0 py-1 mb-0 transition-all border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700" nav-link active href="javascript:;" role="tab" aria-selected="true">
+                                <span class="ml-1">Dashboard</span>
+                            </a>
+                        </li>
 
-                            @else
+                        @else
 
-                            <li class="z-30 flex-auto text-center w-full">
-                                <a href="{{route('user.profile.edit', Auth::user()->profileUser->uuid)}}" class="z-30 font-semibold block w-full px-0 py-1 mb-0 transition-all border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700" nav-link active href="javascript:;" role="tab" aria-selected="true">
-                                    <span class="ml-1">Lengkapi Profile</span>
-                                </a>
-                            </li>
-                            @endif
+                        <li class="z-30 flex-auto text-center w-full">
+                            <a href="{{route('user.profile.edit', Auth::user()->profileUser->uuid)}}" class="z-30 font-semibold block w-full px-0 py-1 mb-0 transition-all border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700" nav-link active href="javascript:;" role="tab" aria-selected="true">
+                                <span class="ml-1">Lengkapi Profile</span>
+                            </a>
+                        </li>
+                        @endif
 
                         @endif
 
@@ -128,19 +150,19 @@
 
                     @if (Auth::user()->hasRole('mitra'))
 
-                        @if (Auth::user()->profileMitra->profileLengkap())
+                    @if (Auth::user()->profileMitra->profileLengkap())
 
-                        <div class="p-4 mt-1">
-                            <a href="{{route('mitra.program.create')}}" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs bg-150 active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 border-fuchsia-500 text-fuchsia-500 hover:opacity-75">Buat Program</a>
-                        </div>
+                    <div class="p-4 mt-1">
+                        <a href="{{route('mitra.program.create')}}" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs bg-150 active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 border-fuchsia-500 text-fuchsia-500 hover:opacity-75">Buat Program</a>
+                    </div>
 
-                        @else
+                    @else
 
-                        <div class="p-4 mt-1">
-                            <a href="{{route('btn.profile')}}" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs bg-150 active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 border-fuchsia-500 text-fuchsia-500 hover:opacity-75">Buat Program</a>
-                        </div>
+                    <div class="p-4 mt-1">
+                        <a href="{{route('btn.profile')}}" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs bg-150 active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 border-fuchsia-500 text-fuchsia-500 hover:opacity-75">Buat Program</a>
+                    </div>
 
-                        @endif
+                    @endif
 
 
 

@@ -5,6 +5,7 @@ namespace App\Actions\Fortify;
 use App\Models\Mitra;
 use App\Models\MitraProfile;
 use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -52,10 +53,17 @@ class CreateNewUser implements CreatesNewUsers
 
         }else{
 
+
             $user =  User::create([
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
+            ]);
+
+            UserProfile::create([
+                'user_id' => $user->id,
+                'profile_image' => 'profile_default.jpg',
+                'uuid' => Str::uuid()
             ]);
 
             return $user->assignRole('User');
