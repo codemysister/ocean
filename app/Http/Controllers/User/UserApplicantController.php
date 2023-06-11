@@ -17,7 +17,7 @@ class UserApplicantController extends Controller
             'cv' => 'required',
         ]);
 
-        $data['user_profiles_id'] = Auth::user()->profileUser->id;
+        $data['user_profile_id'] = Auth::user()->profileUser->id;
         $data['status'] = "Terdaftar";
         $data['cv'] = $request->cv->store('cv', 'public');
 

@@ -13,6 +13,11 @@ class Applicant extends Model
 
     public function program()
     {
-        return $this->belongsTo(Program::class);
+        return $this->belongsTo(Program::class, 'program_id', 'id');
+    }
+
+    public function userProfile()
+    {
+        return $this->belongsTo(UserProfile::class, 'user_profile_id', 'id');
     }
 }
