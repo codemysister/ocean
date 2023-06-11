@@ -38,21 +38,8 @@
 
 
 
+                    @include('mitra.program.partial.navbar_program')
 
-                    <div class="flex flex-wrap -mb-px text-md font-medium text-left border-b px-5 ">
-                        <div class="mr-4">
-                            <a href="" class="inline-block text-blue-700 p-4 border-b-2 border-blue-700 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Deskripsi</a>
-                        </div>
-                        <div class="mr-4">
-                            <a href="" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Pendaftar</a>
-                        </div>
-                        <div class="mr-4">
-                            <a href="" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Terseleksi</a>
-                        </div>
-                        <div class="mr-4">
-                            <a href="" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Lolos</a>
-                        </div>
-                    </div>
 
                     <div class="p-5">
 
@@ -79,6 +66,7 @@
 
                         </div>
                     </div>
+
                 </div>
                 <footer class="pt-4">
                     <div class="w-full px-6 mx-auto">
