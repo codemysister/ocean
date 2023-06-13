@@ -145,7 +145,6 @@
 
                     <div class="p-4 pb-0 mb-0 bg-white rounded-t-2xl">
                         <h6 class="mb-1">Program</h6>
-                        <p class="leading-normal text-sm">Architects design houses</p>
                     </div>
 
                     @if (Auth::user()->hasRole('mitra'))

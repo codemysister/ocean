@@ -8,30 +8,36 @@
                 <div class=" rounded-t-2xl bg-black px-5 py-10">
                     <div class="flex justify-between align-middle">
                         <div>
-                            <div class="flex gap-2 align-middle justify-between pb-0 mb-4">
-                                <div class="flex gap-2 h-full">
-                                    <h6 class="mb-1 text-white font-bold text-xl">{{$program->title}}</h6>
-                                    @if ($program->intern_type == 'Paid')
-                                    <span class="bg-green-700 text-white text-center text-xs font-medium mr-2 px-2.5 py-0.5 pt-1.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{{$program->intern_type}}</span>
+
+                            <h6 class="mb-1 text-white font-bold text-xl w-full">{{$program->title}}</h6>
+                            <p class="mb-1">
+                                @if ($program->intern_type == 'Paid')
+                                    <span class="bg-green-700 w-1/3 text-white text-center text-xs font-medium mr-2 px-2.5 py-0.5 p-1.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{{$program->intern_type}}</span>
                                     @else
                                     <span class="bg-gray-700 text-white text-center text-xs font-medium mr-2 px-2.5 py-0.5 pt-1.5 rounded dark:bg-gray-700 dark:text-green-400 border border-white">{{$program->intern_type}}</span>
                                     @endif
-                                </div>
-                            </div>
-
-                            <p class="text-xs text-white"><b>Skema : </b>{{$program->work_mode}}</p>
-                            <p class="text-xs text-white"><b>Durasi : </b>{{$program->duration}} bulan</p>
-                            <p class="text-xs text-white"><b>Periode : </b>{{Carbon\Carbon::parse($program->start)->locale('id')->isoFormat('D MMMM YYYY')}} - {{Carbon\Carbon::parse($program->end)->locale('id')->isoFormat('D MMMM YYYY')}}</p>
+                            </p>
+                            <p class="text-xs text-white mb-1"><b>Skema : </b>{{$program->work_mode}}</p>
+                            <p class="text-xs text-white mb-1"><b>Durasi : </b>{{$program->duration}} bulan</p>
+                            <p class="text-xs text-white mb-1"><b>Periode : </b>{{Carbon\Carbon::parse($program->start)->locale('id')->isoFormat('D MMMM YYYY')}} - {{Carbon\Carbon::parse($program->end)->locale('id')->isoFormat('D MMMM YYYY')}}</p>
                             <p class="text-xs text-white"><b>Domisili : </b>{{$program->mitra->address}}</p>
                         </div>
 
                         @if (Auth::user()->hasRole('user'))
 
+
                         @if (Auth::user()->profileUser->profileLengkap())
 
-                        <div class="flex flex-col ">
-                            <button data-modal-target="modal-daftar" data-modal-toggle="modal-daftar" class="text-white mt-[50%] bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Daftar</button>
-                        </div>
+                            @if (!Auth::user()->profileUser->sudahDaftar(Auth::user()->profileUser->id, $program->id))
+
+                            <div class="flex flex-col ">
+                                <button data-modal-target="modal-daftar" data-modal-toggle="modal-daftar" class="text-white mt-[50%] bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Daftar</button>
+                            </div>
+                            @else
+                            <div class="flex flex-col ">
+                                <button disabled class="text-white mt-[25%] bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Sudah terdaftar</button>
+                            </div>
+                            @endif
 
                         @else
 

@@ -16,6 +16,14 @@ class UserProfile extends Model
         return 'uuid';
     }
 
+    public function sudahDaftar($user_profile_id, $program_id)
+    {
+        $result = Applicant::where('program_id', $program_id)
+        ->where('user_profile_id', $user_profile_id)
+        ->exists();
+        return $result;
+    }
+
     public function profileLengkap()
     {
         foreach ($this->attributes as $attribute) {
@@ -30,5 +38,10 @@ class UserProfile extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function applicant()
+    {
+        return $this->hasMany(Applicant::class);
     }
 }
