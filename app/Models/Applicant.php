@@ -11,6 +11,11 @@ class Applicant extends Model
 
     protected $guarded = [];
 
+    public function getRouteKeyName(): string
+    {
+        return 'uuid';
+    }
+
     public function program()
     {
         return $this->belongsTo(Program::class, 'program_id', 'id');
@@ -19,5 +24,15 @@ class Applicant extends Model
     public function userProfile()
     {
         return $this->belongsTo(UserProfile::class, 'user_profile_id', 'id');
+    }
+
+    public function submission()
+    {
+        return $this->hasOne(ApplicantSubmission::class);
+    }
+
+    public function interview()
+    {
+        return $this->hasOne(ApplicantInterview::class);
     }
 }

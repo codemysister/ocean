@@ -25,4 +25,14 @@ class Program extends Model
     {
         return $this->hasMany(Applicant::class);
     }
+
+    public function submission()
+    {
+        return $this->hasOne(ProgramSubmission::class);
+    }
+
+    public function information()
+    {
+        return $this->hasOne(ProgramPassInformation::class);
+    }
 }

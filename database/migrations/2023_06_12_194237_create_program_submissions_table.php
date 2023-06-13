@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('applicants', function (Blueprint $table) {
+        Schema::create('program_submissions', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid');
-            $table->foreignId('user_profile_id')->constrained('user_profiles')->onDelete('cascade');
-            $table->foreignId('program_id')->constrained('programs')->onDelete('cascade');
-            $table->string('cv');
-            $table->string('status');
+            $table->foreignId('program_id')->constrained()->onDelete('cascade');
+            $table->text('description');
+            $table->timestamp('deadline');
+            $table->string('submission');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('applicants');
+        Schema::dropIfExists('program_submissions');
     }
 };
