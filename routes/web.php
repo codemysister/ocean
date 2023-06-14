@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\General\ProgramController;
 use App\Http\Controllers\Mitra\MitraApplicantController;
 use App\Http\Controllers\Mitra\MitraProfileController;
@@ -88,5 +89,5 @@ Route::prefix('admin')->name('admin.')->middleware(['role:admin', 'auth'])->grou
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
 
         Route::resource('category', AdminCategoryController::class);
-
+        Route::resource('slider', AdminSliderController::class);
 });
