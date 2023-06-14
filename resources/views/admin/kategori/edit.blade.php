@@ -12,7 +12,7 @@
                 </div>
 
                 <div>
-                    <form role="form text-left" action="{{route('admin.category.update', $category->id)}}" method="POST">
+                    <form role="form text-left" action="{{route('admin.category.update', $category)}}" method="POST">
                         @csrf
                         @method('PATCH')
                         <div class="gap-4 px-4 mb-3">
