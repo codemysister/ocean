@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminMitraController;
 use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\General\LandingController;
 use App\Http\Controllers\General\ProgramController;
@@ -87,6 +88,14 @@ Route::prefix('mitra')->name('mitra.')->middleware(['role:mitra', 'auth'])->grou
 Route::prefix('admin')->name('admin.')->middleware(['role:admin', 'auth'])->group(function(){
         Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
 
+        // Kategori
         Route::resource('category', AdminCategoryController::class);
+
+        // Slider
         Route::resource('slider', AdminSliderController::class);
+
+        // Mitra
+        Route::get('/mitra', [AdminMitraController::class, 'index'])->name('mitra.index');
+        Route::delete('/mitra/{mitra}/destroy', [AdminMitraController::class, 'destroy'])->name('mitra.destroy');
+
 });
