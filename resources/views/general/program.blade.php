@@ -75,11 +75,6 @@
 
                         @if (Auth::user()->profileUser->profileLengkap())
 
-                        <li class="z-30 flex-auto text-center">
-                            <a href="" class="z-30 block font-semibold w-full px-0 py-1 mb-0 transition-all border-0 rounded-lg ease-soft-in-out bg-inherit text-slate-700" nav-link active href="javascript:;" role="tab" aria-selected="true">
-                                <span class="ml-1">Dashboard</span>
-                            </a>
-                        </li>
 
                         @else
 
