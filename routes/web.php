@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminMitraController;
 use App\Http\Controllers\Admin\AdminSliderController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\General\LandingController;
 use App\Http\Controllers\General\ProgramController;
 use App\Http\Controllers\Mitra\MitraApplicantController;
@@ -97,5 +98,9 @@ Route::prefix('admin')->name('admin.')->middleware(['role:admin', 'auth'])->grou
         // Mitra
         Route::get('/mitra', [AdminMitraController::class, 'index'])->name('mitra.index');
         Route::delete('/mitra/{mitra}/destroy', [AdminMitraController::class, 'destroy'])->name('mitra.destroy');
+
+        // User
+        Route::get('/user', [AdminUserController::class, 'index'])->name('user.index');
+        Route::delete('/user/{user}/destroy', [AdminUserController::class, 'destroy'])->name('user.destroy');
 
 });

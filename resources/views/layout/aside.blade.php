@@ -169,6 +169,21 @@
                     <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Mitra</span>
                 </a>
             </li>
+
+            <li class="mt-0.5 w-full">
+                <a href="{{route('admin.user.index')}}" class="{{isActiveRoute('admin.user')}} py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../pages/billing.html">
+                    <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z"></path>
+                            <path d="M8 14H16L18 20H6L8 14Z"></path>
+                            <path d="M12 10C14.21 10 16 8.21 16 6C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6C8 8.21 9.79 10 12 10Z"></path>
+                        </svg>
+
+
+                    </div>
+                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">User</span>
+                </a>
+            </li>
             @endif
 
 
