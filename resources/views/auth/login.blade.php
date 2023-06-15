@@ -11,9 +11,15 @@
 
         <div class="mb-4">
           <input type="email" name="email" class="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow" placeholder="Email" aria-label="Email" aria-describedby="email-addon" value="{{old('email')}}" />
+          @error('email')
+          <p class="font-semibold text-xs text-red-700">{{$message}}</p>
+          @enderror
         </div>
         <div class="mb-4">
           <input type="password" name="password" class="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow" placeholder="Password" aria-label="Password" aria-describedby="password-addon" value="{{old('password')}}"/>
+          @error('password')
+          <p class="font-semibold text-xs text-red-700">{{$message}}</p>
+          @enderror
         </div>
 
         <div class="text-center">
