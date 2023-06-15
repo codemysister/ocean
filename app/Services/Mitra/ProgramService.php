@@ -23,7 +23,7 @@ class ProgramService {
         $data = $request->validated();
 
         if($request->hasFile('guidebook')){
-            if($program->guidebook != "storage/public/guidebook.pdf"){
+            if($program->guidebook != "guidebook.pdf"){
                 Storage::delete('public/'.$program->guidebook);
             }
             $data['guidebook'] = $request->guidebook->store('guidebook', 'public');

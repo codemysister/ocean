@@ -24,7 +24,7 @@ class ProgramSeeder extends Seeder
             'duration' => 6,
             'intern_type' => 'Paid',
             'description' => 'Magang Fullstack Developer bersama PT Ocean',
-            'guidebook' => 'storage/public/guidebook.pdf',
+            'guidebook' => 'guidebook.pdf',
             'start' => '2023-06-04 06:43:00',
             'end' => '2024-01-01 00:00:00'
         ]);
@@ -38,7 +38,7 @@ class ProgramSeeder extends Seeder
             'duration' => 3,
             'intern_type' => 'Paid',
             'description' => 'Magang Backend Developer bersama PT Ocean',
-            'guidebook' => 'storage/public/guidebook.pdf',
+            'guidebook' => 'guidebook.pdf',
             'start' => '2023-06-04 06:43:00',
             'end' => '2023-09-01 00:00:00'
         ]);
@@ -52,7 +52,7 @@ class ProgramSeeder extends Seeder
             'duration' => 6,
             'intern_type' => 'Unpaid',
             'description' => 'Magang Frontend Developer bersama PT Ocean',
-            'guidebook' => 'storage/public/guidebook.pdf',
+            'guidebook' => 'guidebook.pdf',
             'start' => '2023-07-10 09:00:00',
             'end' => '2023-12-31 18:00:00'
         ]);
@@ -66,7 +66,35 @@ class ProgramSeeder extends Seeder
             'duration' => 4,
             'intern_type' => 'Paid',
             'description' => 'Magang Marketing bersama PT Ocean',
-            'guidebook' => 'storage/public/guidebook.pdf',
+            'guidebook' => 'guidebook.pdf',
+            'start' => '2023-08-15 10:00:00',
+            'end' => '2023-12-15 16:30:00'
+        ]);
+
+        Program::create([
+            'category_id' => 2,
+            'mitra_profiles_id' => 2,
+            'title' => 'Software Engineer',
+            'slug' => Str::slug('Software Engineer') . '-' . Str::random(6),
+            'work_mode' => 'Work From Home (WFH)',
+            'duration' => 4,
+            'intern_type' => 'Paid',
+            'description' => 'Magang bersama PT GoTo',
+            'guidebook' => 'guidebook.pdf',
+            'start' => '2023-08-15 10:00:00',
+            'end' => '2023-12-15 16:30:00'
+        ]);
+
+        Program::create([
+            'category_id' => 1,
+            'mitra_profiles_id' => 2,
+            'title' => 'Business Development',
+            'slug' => Str::slug('Business Development') . '-' . Str::random(6),
+            'work_mode' => 'Work From Home (WFH)',
+            'duration' => 4,
+            'intern_type' => 'Paid',
+            'description' => 'Magang bersama PT GoTo',
+            'guidebook' => 'guidebook.pdf',
             'start' => '2023-08-15 10:00:00',
             'end' => '2023-12-15 16:30:00'
         ]);

@@ -52,5 +52,18 @@ class UserSeeder extends Seeder
             'logo' => 'profile_default.jpg',
             'uuid' => Str::uuid()
         ]);
+
+        $mitra = \App\Models\User::create([
+            'name' => 'Tokopedia',
+            'email' => 'tokopedia@gmail.com',
+            'password' => bcrypt('mitra123')
+        ]);
+        $mitra->assignRole($roleMitra);
+
+        MitraProfile::create([
+            'user_id' => $mitra->id,
+            'logo' => 'tokopedia.png',
+            'uuid' => Str::uuid()
+        ]);
     }
 }
