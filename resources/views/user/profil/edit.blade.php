@@ -66,9 +66,9 @@
                                 <span class="text-sm font-medium text-slate-700 mb-2">Status</span>
                                 <select name="status" id="status" class="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow">
                                     <option value="">Pilih status saat ini</option>
-                                    <option value="Pelajar">Pelajar/Mahasiswa/SMK</option>
-                                    <option value="Fresh Graduate">Fresh graduate</option>
-                                    <option value="Pekerja">Pekerja</option>
+                                    <option value="Pelajar" @selected($profile->status == "Pelajar")>Pelajar/Mahasiswa/SMK</option>
+                                    <option value="Fresh Graduate" @selected($profile->status == "Fresh Graduate")>Fresh graduate</option>
+                                    <option value="Pekerja" @selected($profile->status == "Pekerja")>Pekerja</option>
                                 </select>
                                 @error('status')
                                 <p class="font-semibold text-xs text-red-700">{{$message}}</p>
