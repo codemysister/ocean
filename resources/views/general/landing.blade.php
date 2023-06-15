@@ -338,7 +338,7 @@
                         <form action="#">
                             <input type="text" placeholder="Masukan email anda..">
                             <div class="action-btn rounded-buttons">
-                                <button class="main-btn rounded-three">subscribe</button>
+                                <button type="button" class="main-btn rounded-three">subscribe</button>
                             </div>
                         </form>
                     </div> <!-- call action form -->
@@ -522,7 +522,7 @@
                             </div> <!-- form input -->
                             <p class="form-message"></p>
                             <div class="form-input rounded-buttons mt-20">
-                                <button type="submit" class="main-btn rounded-three">Submit</button>
+                                <button type="button" class="main-btn rounded-three">Submit</button>
                             </div> <!-- form input -->
                         </form>
                     </div> <!-- contact form -->
