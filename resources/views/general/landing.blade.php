@@ -96,9 +96,11 @@
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#contact">Kontak</a>
                                     </li>
+                                    @guest
                                     <li class="nav-item">
                                         <a href="{{route('login')}}" class="cursor-pointer rounded-pill shadow-sm" style="background:  #ff5c9f" >Login</a>
                                     </li>
+                                    @endguest
                                 </ul>
                             </div>
 
