@@ -5,7 +5,7 @@
         <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
         <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="javascript:;" target="_blank">
             <img src="{{asset('')}}../assets/img/logo-ct.png" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
-            <span class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">Soft UI Dashboard</span>
+            <span class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">Ocean | Soft UI Dashboard</span>
         </a>
     </div>
 
@@ -14,7 +14,7 @@
     <div class="items-center block w-auto max-h-screen overflow-auto h-screen grow basis-full">
         <ul class="flex flex-col pl-0 mb-0">
             <li class="mt-0.5 w-full">
-                <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../pages/dashboard.html">
+                <a class="py-2.7 {{isActiveRoute('admin.dashboard')}} text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="{{route('admin.dashboard')}}">
 
 
                     <div class="bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
@@ -172,9 +172,31 @@
                 </a>
             </li>
 
-            {{-- <li class="w-full mt-4">
+
+            <li class="w-full my-4">
                 <h6 class="pl-6 ml-2 font-bold leading-tight uppercase text-xs opacity-60">Account pages</h6>
-            </li> --}}
+            </li>
+
+            <li class="mt-0.5 w-full">
+                <form action="{{route('logout')}}" method="POST" class="w-full">
+                @csrf
+
+                <button type="submit" class="y-2.7 w-[88%] ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors hover:text-white hover:bg-gradient-to-r from-red-400 via-red-500 to-red-600  focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm py-2.5 text-center mr-2 mb-2">
+                    <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000" width="12px" height="12px">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M13 7h-2v4H8.5L12 16l3.5-5h-2V7zm-1-5c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10S16.52 2 11 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+
+
+                    </div>
+                    <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Logout</span>
+                </button>
+            </form>
+            </li>
+
+
+
 
             {{-- <li class="mt-0.5 w-full">
                 <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../pages/profile.html">
