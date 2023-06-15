@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!--====== Title ======-->
-        <title>Smart - Multi-purpose Landing Page Template</title>
+        <title>Ocean</title>
 
         <!--====== Favicon Icon ======-->
         <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/png">
@@ -36,6 +36,7 @@
         <!--====== Style css ======-->
         <link rel="stylesheet" href="{{asset('landing/assets/css/style.css')}}">
 
+        {{-- @vite(['resources/js/app.js', 'resources/css/app.css']) --}}
 
 
 </head>
@@ -71,42 +72,37 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="#">
-                                <img src="assets/images/logo.png" alt="Logo">
+                            <a class="navbar-brand text-white" style="font-size: 20px; font-weight: 700;" href="#">
+                               Ocean
                             </a>
 
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
-                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon bg-white"></span>
+                                <span class="toggler-icon bg-white"></span>
+                                <span class="toggler-icon bg-white"></span>
                             </button>
 
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight" >
                                 <ul class="navbar-nav ml-auto">
                                     <li class="nav-item active">
-                                        <a class="page-scroll" href="#home">HOME</a>
+                                        <a class="page-scroll" href="#home">Beranda</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#about">ABOUT</a>
+                                        <a class="page-scroll" href="#about">Tentang Kami</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#portfolio">PORTFOLIO</a>
+                                        <a class="page-scroll" href="#portfolio">Program</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#pricing">PRICING</a>
+                                        <a class="page-scroll" href="#contact">Kontak</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" href="#testimonial">CLIENTS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#contact">CONTACT</a>
+                                        <a href="{{route('login')}}" class="cursor-pointer rounded-pill shadow-sm" style="background:  #ff5c9f" >Login</a>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
-                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
-                            </div>
+
                         </nav> <!-- navbar -->
                     </div>
                 </div> <!-- row -->
@@ -117,67 +113,47 @@
             <div class="bd-example">
                 <div id="carouselOne" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselOne" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselOne" data-slide-to="1"></li>
-                        <li data-target="#carouselOne" data-slide-to="2"></li>
+
+                        @foreach ($sliders as $slider)
+                        <li data-target="#carouselOne" data-slide-to="{{$loop->iteration}}" class="{{$loop->iteration == 1 ? 'active' : ''}}"></li>
+                        @endforeach
+
                     </ol>
 
                     <div class="carousel-inner">
-                        <div class="carousel-item bg_cover active" style="background-image: url({{asset('landing/assets/images/slider-1.jpg')}}">
-                            <div class="carousel-caption">
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-xl-6 col-lg-7 col-sm-10">
-                                            <h2 class="carousel-title">Refreshing Design & Easy to Customize</h2>
-                                            <ul class="carousel-btn rounded-buttons">
-                                                <li><a class="main-btn rounded-three" href="#">GET STARTED</a></li>
-                                                <li><a class="main-btn rounded-one" href="#">DOWNLOAD</a></li>
-                                            </ul>
-                                        </div>
-                                    </div> <!-- row -->
-                                </div> <!-- container -->
-                            </div> <!-- carousel caption -->
-                        </div> <!-- carousel-item -->
 
-                        <div class="carousel-item bg_cover" style="background-image: url({{asset('landing/assets/images/slider-2.jpg')}}">
-                            <div class="carousel-caption">
-                                <div class="container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-xl-6 col-lg-7 col-sm-10">
-                                            <h2 class="carousel-title">Based on Latest Bootstrap & HTML5</h2>
-                                            <ul class="carousel-btn rounded-buttons">
-                                                <li><a class="main-btn rounded-three" href="#">GET STARTED</a></li>
-                                                <li><a class="main-btn rounded-one" href="#">DOWNLOAD</a></li>
-                                            </ul>
-                                        </div>
-                                    </div> <!-- row -->
-                                </div> <!-- container -->
-                            </div> <!-- carousel caption -->
-                        </div> <!-- carousel-item -->
+                        @foreach ($sliders as $slider)
 
-                        <div class="carousel-item bg_cover" style="background-image: url(assets/images/slider-3.jpg)">
+                        <div class="carousel-item bg_cover {{$loop->iteration == 1 ? 'active' : ''}}" style="background-image: url({{asset('storage/'.$slider->img)}}">
                             <div class="carousel-caption">
                                 <div class="container">
                                     <div class="row justify-content-center">
                                         <div class="col-xl-6 col-lg-7 col-sm-10">
-                                            <h2 class="carousel-title">Multi-purpose Landing Page Template</h2>
-                                            <ul class="carousel-btn rounded-buttons">
+                                            <h2 class="carousel-title">{{$slider->caption}}</h2>
+                                            {{-- <ul class="carousel-btn rounded-buttons">
                                                 <li><a class="main-btn rounded-three" href="#">GET STARTED</a></li>
                                                 <li><a class="main-btn rounded-one" href="#">DOWNLOAD</a></li>
-                                            </ul>
+                                            </ul> --}}
                                         </div>
                                     </div> <!-- row -->
                                 </div> <!-- container -->
                             </div> <!-- carousel caption -->
-                        </div> <!-- carousel-item -->
+                        </div>
+
+                        @endforeach
+
+
                     </div> <!-- carousel-inner -->
 
-                    <a class="carousel-control-prev" href="#carouselOne" role="button" data-slide="prev">
-                        <i class="lni-arrow-left-circle"></i>
+
+
+
+                    <a class=" carousel-control-prev" href="#carouselOne" role="button" data-slide="prev">
+                        <i class="d-none d-sm-block lni-arrow-left-circle"></i>
                     </a>
 
-                    <a class="carousel-control-next" href="#carouselOne" role="button" data-slide="next">
-                        <i class="lni-arrow-right-circle"></i>
+                    <a class=" carousel-control-next" href="#carouselOne" role="button" data-slide="next">
+                        <i class="d-none d-sm-block lni-arrow-right-circle"></i>
                     </a>
                 </div> <!-- carousel -->
             </div> <!-- bd-example -->
@@ -187,36 +163,7 @@
 
     <!--====== NAVBAR PART ENDS ======-->
 
-    <!--====== SAIDEBAR PART START ======-->
 
-    <div class="sidebar-right">
-        <div class="sidebar-close">
-            <a class="close" href="#close"><i class="lni-close"></i></a>
-        </div>
-        <div class="sidebar-content">
-            <div class="sidebar-logo text-center">
-                <a href="#"><img src="assets/images/logo-alt.png" alt="Logo"></a>
-            </div> <!-- logo -->
-            <div class="sidebar-menu">
-                <ul>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">SERVICES</a></li>
-                    <li><a href="#">RESOURCES</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                </ul>
-            </div> <!-- menu -->
-            <div class="sidebar-social d-flex align-items-center justify-content-center">
-                <span>FOLLOW US</span>
-                <ul>
-                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                </ul>
-            </div> <!-- sidebar social -->
-        </div> <!-- content -->
-    </div>
-    <div class="overlay-right"></div>
-
-    <!--====== SAIDEBAR PART ENDS ======-->
 
     <!--====== ABOUT PART START ======-->
 
@@ -225,61 +172,15 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6 col-lg-8">
                     <div class="about-image text-center wow fadeInUp" data-wow-duration="1.5s" data-wow-offset="100">
-                        <img src="{{asset('landing/assets/images/services.png')}}" alt="services">
+                        <img src="{{asset('assets/img/hero.jpg')}}" alt="services">
                     </div>
                     <div class="section-title text-center mt-30 pb-40">
-                        <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">The future of designing starts here</h4>
-                        <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">An open platform for presentations and content collaboration. Sign up to get early access.</p>
+                        <h4 style="font-size: 26px" class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">Temukan Peluang Magang Tanpa Batas dengan Platform Kami</h4>
+                        <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">"Mulailah Perjalanan Profesional Anda: Temukan Magang Ideal bersama Kami"</p>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
 
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.2s">
-                        <div class="about-icon">
-                            <img src="{{asset('landing/assets/images/icon-1.png')}}" alt="Icon">
-                        </div>
-                        <div class="about-content media-body">
-                            <h4 class="about-title">Powerful templates</h4>
-                            <p class="text">Poorly designed presentations are a thing of the past. Create beautiful and high-quality content that is aligned.</p>
-                        </div>
-                    </div> <!-- single about -->
-                </div>
-                <div class="col-lg-6">
-                    <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.4s">
-                        <div class="about-icon">
-                            <img src="assets/images/icon-2.png" alt="Icon">
-                        </div>
-                        <div class="about-content media-body">
-                            <h4 class="about-title">Designed for everyone</h4>
-                            <p class="text">Poorly designed presentations are a thing of the past. Create beautiful and high-quality content that is aligned.</p>
-                        </div>
-                    </div> <!-- single about -->
-                </div>
-                <div class="col-lg-6">
-                    <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.6s">
-                        <div class="about-icon">
-                            <img src="assets/images/icon-3.png" alt="Icon">
-                        </div>
-                        <div class="about-content media-body">
-                            <h4 class="about-title">Work anywhere</h4>
-                            <p class="text">Poorly designed presentations are a thing of the past. Create beautiful and high-quality content that is aligned.</p>
-                        </div>
-                    </div> <!-- single about -->
-                </div>
-                <div class="col-lg-6">
-                    <div class="single-about d-sm-flex mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1.8s">
-                        <div class="about-icon">
-                            <img src="assets/images/icon-4.png" alt="Icon">
-                        </div>
-                        <div class="about-content media-body">
-                            <h4 class="about-title">Updated in real time</h4>
-                            <p class="text">Poorly designed presentations are a thing of the past. Create beautiful and high-quality content that is aligned.</p>
-                        </div>
-                    </div> <!-- single about -->
-                </div>
-            </div> <!-- row -->
         </div> <!-- container -->
     </section>
 
@@ -292,8 +193,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section-title text-center pb-20">
-                        <h3 class="title">Our Portfolio</h3>
-                        <p class="text">Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p>
+                        <h3 class="title">Program Kami</h3>
+                        {{-- <p class="text">Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p> --}}
                     </div> <!-- row -->
                 </div>
             </div> <!-- row -->
@@ -301,148 +202,45 @@
                 <div class="col-lg-12">
                     <div class="portfolio-menu pt-30 text-center">
                         <ul>
-                            <li data-filter="*" class="active">ALL WORK</li>
-                            <li data-filter=".branding-3">BRANDING</li>
-                            <li data-filter=".marketing-3">MARKETING</li>
-                            <li data-filter=".planning-3">PLANNING</li>
-                            <li data-filter=".research-3">RESEARCH</li>
+                            <li data-filter="*" class="active">Semua</li>
+                            @foreach ($categories as $category)
+                            <li data-filter=".{{$category->uuid}}">{{$category->category_name}}</li>
+                            @endforeach
+
                         </ul>
                     </div> <!-- portfolio menu -->
                 </div>
             </div> <!-- row -->
             <div class="row grid">
-                <div class="col-lg-4 col-sm-6 branding-3 planning-3">
+
+                @foreach ($programs as $program)
+                <div class="col-lg-4 col-sm-6 {{$program->category->uuid}}">
                     <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
                         <div class="portfolio-image">
-                            <img src="assets/images/portfolio-1.png" alt="">
+                            <img src="{{asset('storage/'.$program->mitra->logo)}}" alt="">
                             <div class="portfolio-overlay d-flex align-items-center justify-content-center">
                                 <div class="portfolio-content">
                                     <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-1.png"><i class="lni-zoom-in"></i></a>
+                                        <a class="image-popup" href="{{asset('storage/'.$program->mitra->logo)}}" ><i class="lni-zoom-in" style="color:#ff5c9f"></i></a>
                                     </div>
                                     <div class="portfolio-icon">
-                                        <a href="#"><i class="lni-link"></i></a>
+                                        <a href="{{route('program.show', $program->slug)}}"><i class="lni-link" style="color:#ff5c9f"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                            <p class="text">Short description for the ones who look for something new. Awesome!</p>
+                            <h4 class="portfolio-title"><a href="{{route('program.show', $program->slug)}}">{{$program->title}}</a></h4>
                         </div>
                     </div> <!-- single portfolio -->
                 </div>
-                <div class="col-lg-4 col-sm-6 marketing-3 research-3">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-2.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-2.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                    <div class="portfolio-icon">
-                                        <a href="#"><i class="lni-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                            <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                        </div>
-                    </div> <!-- single portfolio -->
-                </div>
-                <div class="col-lg-4 col-sm-6 branding-3 marketing-3">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-3.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-3.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                    <div class="portfolio-icon">
-                                        <a href="#"><i class="lni-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                            <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                        </div>
-                    </div> <!-- single portfolio -->
-                </div>
-                <div class="col-lg-4 col-sm-6 planning-3 research-3">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-4.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-4.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                    <div class="portfolio-icon">
-                                        <a href="#"><i class="lni-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                            <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                        </div>
-                    </div> <!-- single portfolio -->
-                </div>
-                <div class="col-lg-4 col-sm-6 marketing-3">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.4s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-5.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-5.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                    <div class="portfolio-icon">
-                                        <a href="#"><i class="lni-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                            <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                        </div>
-                    </div> <!-- single portfolio -->
-                </div>
-                <div class="col-lg-4 col-sm-6 planning-3">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
-                        <div class="portfolio-image">
-                            <img src="assets/images/portfolio-6.png" alt="">
-                            <div class="portfolio-overlay d-flex align-items-center justify-content-center">
-                                <div class="portfolio-content">
-                                    <div class="portfolio-icon">
-                                        <a class="image-popup" href="assets/images/portfolio-6.png"><i class="lni-zoom-in"></i></a>
-                                    </div>
-                                    <div class="portfolio-icon">
-                                        <a href="#"><i class="lni-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-text">
-                            <h4 class="portfolio-title"><a href="#">Graphics Design</a></h4>
-                            <p class="text">Short description for the ones who look for something new. Awesome!</p>
-                        </div>
-                    </div> <!-- single portfolio -->
-                </div>
+                @endforeach
             </div> <!-- row -->
         </div> <!-- container -->
     </section>
 
     <!--====== portfolio PART ENDS ======-->
-
+{{--
     <!--====== PRINICNG STYLE EIGHT START ======-->
 
     <section id="pricing" class="pricing-area">
@@ -522,7 +320,7 @@
         </div> <!-- container -->
     </section>
 
-    <!--====== PRINICNG STYLE EIGHT ENDS ======-->
+    <!--====== PRINICNG STYLE EIGHT ENDS ======--> --}}
 
     <!--====== CALL TO ACTION TWO PART START ======-->
 
@@ -531,14 +329,14 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="call-action-content mt-45">
-                        <h3 class="action-title">Get latest updates!</h3>
-                        <p class="text">We never spam your email</p>
+                        <h3 class="action-title">Dapatkan informasi terbaru kami!</h3>
+                        <p class="text">kami tidak spam email Anda</p>
                     </div> <!-- call action content -->
                 </div>
                 <div class="col-lg-7">
                     <div class="call-action-form mt-50">
                         <form action="#">
-                            <input type="text" placeholder="Enter your email">
+                            <input type="text" placeholder="Masukan email anda..">
                             <div class="action-btn rounded-buttons">
                                 <button class="main-btn rounded-three">subscribe</button>
                             </div>
@@ -551,7 +349,7 @@
 
     <!--====== CALL TO ACTION TWO PART ENDS ======-->
 
-    <!--====== TESTIMONIAL THREE PART START ======-->
+    {{-- <!--====== TESTIMONIAL THREE PART START ======-->
 
     <section id="testimonial" class="testimonial-area">
         <div class="container">
@@ -621,7 +419,7 @@
         </div> <!-- container -->
     </section>
 
-    <!--====== TESTIMONIAL THREE PART ENDS ======-->
+    <!--====== TESTIMONIAL THREE PART ENDS ======--> --}}
 
     <!--====== CLIENT LOGO PART START ======-->
 
@@ -630,42 +428,42 @@
             <div class="row client-active">
                 <div class="col-lg-3">
                     <div class="single-client text-center">
-                        <img src="assets/images/client_logo_01.png" alt="Logo">
+                        <img src="{{asset('landing/assets/images/client_logo_01.png')}}" alt="Logo">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client text-center">
-                        <img src="assets/images/client_logo_02.png" alt="Logo">
+                        <img src="{{asset('landing/assets/images/client_logo_02.png')}}" alt="Logo">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client text-center">
-                        <img src="assets/images/client_logo_03.png" alt="Logo">
+                        <img src="{{asset('landing/assets/images/client_logo_03.png')}}" alt="Logo">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client text-center">
-                        <img src="assets/images/client_logo_04.png" alt="Logo">
+                        <img src="{{asset('landing/assets/images/client_logo_04.png')}}" alt="Logo">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client text-center">
-                        <img src="assets/images/client_logo_05.png" alt="Logo">
+                        <img src="{{asset('landing/assets/images/client_logo_05.png')}}" alt="Logo">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client text-center">
-                        <img src="assets/images/client_logo_06.png" alt="Logo">
+                        <img src="{{asset('landing/assets/images/client_logo_06.png')}}" alt="Logo">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client text-center">
-                        <img src="assets/images/client_logo_07.png" alt="Logo">
+                        <img src="{{asset('landing/assets/images/client_logo_07.png')}}" alt="Logo">
                     </div> <!-- single client -->
                 </div>
                 <div class="col-lg-3">
                     <div class="single-client text-center">
-                        <img src="assets/images/client_logo_08.png" alt="Logo">
+                        <img src="{{asset('landing/assets/images/client_logo_08.png')}}" alt="Logo">
                     </div> <!-- single client -->
                 </div>
             </div> <!-- row -->
@@ -681,16 +479,16 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section-title text-center pb-20">
-                        <h3 class="title">Get in touch</h3>
-                        <p class="text">Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p>
+                        <h3 class="title">Kerja Sama</h3>
+
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
             <div class="row">
                 <div class="col-lg-6">
                     <div class="contact-two mt-50 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.2s">
-                        <h4 class="contact-title">Lets talk about the project</h4>
-                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam unde repellendus delectus facilis quia consequatur maxime perferendis! Sequi, modi consequatur.</p>
+                        <h4 class="contact-title">Kerja sama bersama kami?</h4>
+                        <p class="text">Kami membuka peluang bagi Anda yang ingin berkontribusi atau bekerja sama bersama Kami.</p>
                         <ul class="contact-info">
                             <li><i class="lni-money-location"></i> Elizabeth St, Melbourne, Australia</li>
                             <li><i class="lni-phone-handset"></i> +333 789-321-654</li>
@@ -702,9 +500,9 @@
                     <div class="contact-form form-style-one mt-35 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.5s">
                         <form  id="contact-form" action="assets/contact.php" method="post">
                             <div class="form-input mt-15">
-                                <label>Name</label>
+                                <label>Nama</label>
                                 <div class="input-items default">
-                                    <input type="text" placeholder="Name" name="name">
+                                    <input type="text" placeholder="Nama" name="name">
                                     <i class="lni-user"></i>
                                 </div>
                             </div> <!-- form input -->
@@ -716,9 +514,9 @@
                                 </div>
                             </div> <!-- form input -->
                             <div class="form-input mt-15">
-                                <label>Massage</label>
+                                <label>Pesan</label>
                                 <div class="input-items default">
-                                    <textarea placeholder="Massage" name="massage"></textarea>
+                                    <textarea placeholder="Pesan" name="Pesan"></textarea>
                                     <i class="lni-pencil-alt"></i>
                                 </div>
                             </div> <!-- form input -->
@@ -743,41 +541,42 @@
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-link">
-                            <h6 class="footer-title">Company</h6>
+                            <h6 class="footer-title">Perusahaan</h6>
                             <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Profile</a></li>
+                                <li><a href="#">Tentang Kami</a></li>
+                                <li><a href="#">Kontak</a></li>
+                                <li><a href="#">Profil</a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-link">
-                            <h6 class="footer-title">Solutions</h6>
+                            <h6 class="footer-title">Solusi</h6>
                             <ul>
-                                <li><a href="#">Facilities Services</a></li>
-                                <li><a href="#">Workplace Staffing</a></li>
-                                <li><a href="#">Project Management</a></li>
+                                <li><a href="#">Layanan</a></li>
+                                <li><a href="#">Pegawai</a></li>
+                                <li><a href="#">Projek</a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-link">
-                            <h6 class="footer-title">Product & Services</h6>
+                            <h6 class="footer-title">Produk & Layanan</h6>
                             <ul>
-                                <li><a href="#">Products</a></li>
-                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Produk</a></li>
+                                <li><a href="#">Bisnis</a></li>
                                 <li><a href="#">Developer</a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-link">
-                            <h6 class="footer-title">Help & Suuport</h6>
+                            <h6 class="footer-title">Bantuan & Support</h6>
                             <ul>
-                                <li><a href="#">Support Center</a></li>
+                                <li><a href="#">Pusat Bantuan</a></li>
                                 <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Syarat & Ketentuan
+                                </a></li>
                             </ul>
                         </div> <!-- footer link -->
                     </div>
@@ -790,12 +589,12 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <div class="copyright text-center text-lg-left mt-10">
-                            <p class="text">Crafted by <a style="color: #38f9d7" rel="nofollow" href="https://uideck.con">UIdeck</a> and UI Elements from <a style="color: #38f9d7" rel="nofollow" href="https://ayroui.com">Ayro UI</a></p>
+                            <p class="text">Crafted by <a style="color: #ff5c9f" rel="nofollow" href="https://uideck.con">UIdeck</a> and UI Elements from <a style="color: #ff5c9f" rel="nofollow" href="https://ayroui.com">Ayro UI </a></p>
                         </div> <!--  copyright -->
                     </div>
                     <div class="col-lg-2">
                         <div class="footer-logo text-center mt-10">
-                            <a href="index.html"><img src="assets/images/logo-2.svg" alt="Logo"></a>
+
                         </div> <!-- footer logo -->
                     </div>
                     <div class="col-lg-5">
@@ -815,7 +614,7 @@
 
     <!--====== BACK TOP TOP PART START ======-->
 
-    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <a href="#" class="back-to-top" style="background: #ff5c9f; color:white;"><i class="lni-chevron-up"></i></a>
 
     <!--====== BACK TOP TOP PART ENDS ======-->
 

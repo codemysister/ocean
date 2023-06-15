@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminSliderController;
+use App\Http\Controllers\General\LandingController;
 use App\Http\Controllers\General\ProgramController;
 use App\Http\Controllers\Mitra\MitraApplicantController;
 use App\Http\Controllers\Mitra\MitraProfileController;
@@ -21,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function(){
-    return view('general.landing');
-});
+Route::get('/', LandingController::class);
 
 Route::get('/btnProfile', [ProgramController::class, 'btnInfoProfile'])->name('btn.profile');
 

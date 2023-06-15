@@ -16,6 +16,11 @@ class Program extends Model
         return 'slug';
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function mitra()
     {
         return $this->belongsTo(MitraProfile::class, 'mitra_profiles_id', 'id');
