@@ -20,7 +20,7 @@
 
                 <div class="flex-auto p-4">
                     <div class="flex flex-wrap -mx-3">
-                        @foreach ($applicants as $programs)
+                        @forelse ($applicants as $programs)
                         <div class="w-full max-w-full  p-3 mb-6 md:w-6/12 md:flex-none xl:mb-0 xl:w-3/12">
                             <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border">
                                 <div class="relative h-[200px] w-full max-h-[200px] shadow-xl rounded-2xl">
@@ -51,7 +51,12 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+
+                        @empty
+                        <div class="flex justify-center w-full">
+                            <h1 class="text-lg text-center font-semibold mb-4">Belum ada lamaran</h1>
+                        </div>
+                        @endforelse
 
                     </div>
                 </div>
