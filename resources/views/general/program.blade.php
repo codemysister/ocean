@@ -168,7 +168,7 @@
                 <div class="flex-auto p-4">
                     <div class="flex flex-wrap -mx-3">
                         @foreach ($programs as $program)
-                        <div class="w-full max-w-full  p-3 mb-6 md:w-6/12 md:flex-none xl:mb-0 xl:w-3/12">
+                        <div class="w-1/2 max-w-full  p-3 mb-6 md:w-3/12 md:flex-none xl:mb-0 xl:w-3/12">
                             <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border">
                                 <div class="relative h-[200px] w-full max-h-[200px] shadow-xl rounded-2xl">
                                     <img src="{{asset('storage/'.$program->mitra->logo)}}" alt="img-blur-shadow" class="max-w-full shadow-soft-2xl w-full h-full rounded-2xl" />
@@ -188,11 +188,19 @@
                             </div>
                         </div>
                         @endforeach
+
+
+
+                        {{-- {{ $programs->links() }} --}}
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
+
+
+
     <footer class="pt-4">
         <div class="w-full px-6 mx-auto">
             <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
