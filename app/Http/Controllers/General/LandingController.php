@@ -16,7 +16,7 @@ class LandingController extends Controller
     public function __invoke(Request $request)
     {
         $sliders = Slider::where('status', 1)->get();
-        $categories = Category::all();
+        $categories = Category::limit(5)->get();
         $programs = Program::all();
         return view('general.landing', compact('sliders', 'categories', 'programs'));
     }
