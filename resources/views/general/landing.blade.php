@@ -216,7 +216,7 @@
             <div class="row grid">
 
                 @foreach ($programs as $program)
-                <div class="col-lg-4 col-sm-6 {{$program->category->uuid}}">
+                <div class="col-6 col-lg-3 col-sm-6 {{$program->category->uuid}}">
                     <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.2s">
                         <div class="portfolio-image">
                             <img src="{{asset('storage/'.$program->mitra->logo)}}" alt="">
