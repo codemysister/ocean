@@ -16,6 +16,6 @@ function isActiveRouteProgram($routeName)
 
     $currentRoute = request()->segment(4);
 
-    return $currentRoute === $routeName ? 'text-blue-700 border-b-2 border-blue-700' : '';
+    return $currentRoute === $routeName ? 'color: blue; border-bottom: 2px solid blue;' : '';
 }
 
